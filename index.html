@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpana Ahirwar | Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- GSAP for Apple-like Cinematic Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #f5f5f7;
+            overflow-x: hidden;
+        }
+        /* Apple-style smooth gradient text */
+        .gradient-text {
+            background: linear-gradient(180deg, #ffffff 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Glassmorphism for Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        /* Slider Image Transitions */
+        .slide-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide-img.active {
+            opacity: 1;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 bg-[#050505]/70 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-xl font-bold tracking-tight">Arpana<span class="text-blue-500">.</span></div>
+        <div class="space-x-8 text-sm text-[#86868b] hidden md:flex">
+            <a href="#hero" class="hover:text-white transition">Home</a>
+            <a href="#projects" class="hover:text-white transition">Projects</a>
+            <a href="#credentials" class="hover:text-white transition">Credentials</a>
+            <a href="#coming-soon" class="hover:text-white transition">Future</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <!-- Navigation Resume Download -->
+            <button onclick="downloadResume()" class="border border-white/10 text-white text-xs px-4 py-2 rounded-full hover:bg-white/5 transition flex items-center gap-1.5 cursor-pointer">
+                <span>⬇</span> Resume
+            </button>
+            <a href="https://www.linkedin.com/in/arpana-ahirwar-87336a194/" target="_blank" class="bg-blue-600 text-white text-xs px-4 py-2 rounded-full hover:bg-blue-500 transition">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- 2. APPLE-STYLE HERO SECTION -->
+    <section id="hero" class="h-screen w-full flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="hero-trigger">
+            <h1 class="hero-title text-5xl md:text-8xl font-extrabold tracking-tight gradient-text mb-6">
+                Design. Code. Analyze.
+            </h1>
+            <p class="hero-subtitle text-lg md:text-2xl text-[#86868b] max-w-2xl font-light mx-auto mb-8">
+                Building premium full-stack solutions and intelligent web experiences with absolute precision.
+            </p>
+            <div class="hero-cta opacity-0 scale-95 flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="#projects" class="text-blue-500 hover:underline text-lg font-medium inline-flex items-center gap-2">
+                    View Case Studies <span class="text-xl">→</span>
+                </a>
+                <!-- Hero Premium Resume Button -->
+                <button onclick="downloadResume()" class="bg-[#1c1c1e] text-white border border-white/10 hover:border-white/20 px-6 py-2 rounded-full text-sm font-medium transition flex items-center gap-2 cursor-pointer shadow-lg">
+                    <span>📥</span> Download CV / Resume
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-xs text-[#86868b] animate-bounce">
+            Scroll to explore
+        </div>
+    </section>
+
+    <!-- 3. FEATURED PROJECTS (REAL PROJECTS ONLY) -->
+    <section id="projects" class="py-32 px-6 md:px-24 max-w-7xl mx-auto">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-blue-500 mb-2">Featured Work</h2>
+        <h3 class="text-3xl md:text-5xl font-bold tracking-tight mb-20">Premium Case Studies.</h3>
+
+        <div class="space-y-40">
+            <!-- Project 1: Myntra Clone Website -->
+            <div class="project-card grid grid-cols-1 lg:grid-cols-12 gap-12 items-center opacity-0 translate-y-12">
+                <div class="lg:col-span-7 bg-[#1c1c1e] aspect-video rounded-3xl border border-white/5 shadow-2xl overflow-hidden group relative">
+                    <img src="myntra-screenshot.png" alt="Myntra Clone Screenshot" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+                </div>
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-3 text-xs text-[#86868b]">
+                        <span class="bg-white/5 px-3 py-1 rounded-full text-white">Frontend Project</span>
+                        <span>E-Commerce UI Design</span>
+                    </div>
+                    <h4 class="text-3xl font-bold">Myntra Clone Website / Hotel Management Website</h4>
+                    <p class="text-[#86868b] leading-relaxed">
+                        A robust application framework replica designed to handle layouts and backend flows. Built to practice database pipelines, user sessions, and 100% responsive layouts ensuring absolute cross-browser compatibility.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">HTML5</span>
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">CSS3</span>
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">JavaScript</span>
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">Python/PHP Wrapper</span>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 space-y-4 text-sm text-[#86868b]">
+                        <div><strong class="text-white">Challenge:</strong> Streamlining secure table states, record handling, and adaptive navbar components.</div>
+                        <div><strong class="text-white">Solution:</strong> Deployed robust relational logic alongside tailored flexible UI flexbox containers.</div>
+                    </div>
+                    <div class="pt-4 flex gap-6 text-sm">
+                        <a href="https://github.com/arpana1902" target="_blank" class="text-blue-500 hover:underline inline-flex items-center gap-1">GitHub ↗</a>
+                        <a href="#" class="text-blue-500 hover:underline inline-flex items-center gap-1">Live Demo ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: AI Agriculture Chatbot -->
+            <div class="project-card grid grid-cols-1 lg:grid-cols-12 gap-12 items-center opacity-0 translate-y-12">
+                <div class="lg:col-span-5 order-2 lg:order-1 space-y-6">
+                    <div class="flex items-center gap-3 text-xs text-[#86868b]">
+                        <span class="bg-white/5 px-3 py-1 rounded-full text-white">MCA Project</span>
+                        <span>Artificial Intelligence + Web App</span>
+                    </div>
+                    <h4 class="text-3xl font-bold">AI Agriculture Chatbot</h4>
+                    <p class="text-[#86868b] leading-relaxed">
+                        An intelligent advisor leveraging NLP to assist farmers. It processes natural language inputs to deliver real-time, highly contextual insights regarding crop management and intelligent farming solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">Python</span>
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">Flask/Django</span>
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">NLP</span>
+                        <span class="text-xs bg-[#1c1c1e] text-gray-300 px-3 py-1 rounded-md border border-white/5">HTML5/CSS3</span>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 space-y-4 text-sm text-[#86868b]">
+                        <div><strong class="text-white">Challenge:</strong> Making complex machine suggestions highly accessible for diverse user groups.</div>
+                        <div><strong class="text-white">Solution:</strong> Designed an intuitive chatbot workflow layout using clean backend scripts.</div>
+                    </div>
+                    <div class="pt-4 flex gap-6 text-sm">
+                        <a href="https://github.com/arpana1902" target="_blank" class="text-blue-500 hover:underline inline-flex items-center gap-1">GitHub ↗</a>
+                        <a href="#" class="text-blue-500 hover:underline inline-flex items-center gap-1">Live Demo ↗</a>
+                    </div>
+                </div>
+                
+                <!-- Immersive Auto-Swapping Screen Container -->
+                <div class="lg:col-span-7 order-1 lg:order-2 bg-[#1c1c1e] aspect-video rounded-3xl border border-white/5 shadow-2xl overflow-hidden relative flex items-center justify-center p-4">
+                    <div id="agri-slider" class="w-full h-full relative flex items-center justify-center">
+                        <img src="agri-1.jpg" alt="AI Disease Detection Splash" class="slide-img active">
+                        <img src="agri-2.jpg" alt="Login Portal Interface" class="slide-img">
+                        <img src="agri-3.jpg" alt="AI Analyzer Upload Screen" class="slide-img">
+                        <img src="agri-4.jpg" alt="Kheti Sahayak Chat Engine" class="slide-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CREDENTIALS & CERTIFICATIONS SECTION -->
+    <section id="credentials" class="py-32 bg-[#050505] px-6 md:px-24 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-blue-500 mb-2">Verified Expertise</h2>
+            <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-16">Academic Timeline & Skills.</h3>
+            
+            <!-- Bento-style grid for Education & Credentials -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-400 font-semibold uppercase tracking-wider">MCA Degree</span>
+                        <h4 class="text-lg font-bold mt-2 text-white">IGNOU</h4>
+                        <p class="text-xs text-[#86868b] mt-3 leading-relaxed">Graduation: July 2025. Web development, Data Structures, DBMS, and Software Engineering architecture.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-400 font-semibold uppercase tracking-wider">BCA Degree</span>
+                        <h4 class="text-lg font-bold mt-2 text-white">Bundelkhand University</h4>
+                        <p class="text-xs text-[#86868b] mt-3 leading-relaxed">Graduation: 2018. Core computer applications, operational systems analytics, and fundamentals physics logic.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-purple-400 font-semibold uppercase tracking-wider">Teaching Standards</span>
+                        <h4 class="text-lg font-bold mt-2 text-white">CTET Certificate</h4>
+                        <p class="text-xs text-[#86868b] mt-3 leading-relaxed">Cleared during B.Ed framework. Strong capabilities in structured communications and team mentorship workflows.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-orange-400 font-semibold uppercase tracking-wider">Core Engineering</span>
+                        <h4 class="text-lg font-bold mt-2 text-white">HTML5 & CSS3 Verified</h4>
+                        <p class="text-xs text-[#86868b] mt-3 leading-relaxed">Certified in layout building, cross-browser styling rendering, and pixel-perfect responsiveness assets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FUTURE PROJECTS (COMING SOON SECTION) -->
+    <section id="coming-soon" class="py-32 bg-[#0a0a0c] border-y border-white/5 px-6 md:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-blue-500 mb-2">The Pipeline</h2>
+                <h3 class="text-3xl md:text-4xl font-bold tracking-tight">Future Architecture.</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cards -->
+                <div class="glass-card rounded-2xl p-6 relative group overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-blue-500/10 text-blue-400 text-[10px] font-semibold tracking-wider uppercase px-2 py-1 rounded-full">Coming Soon</div>
+                    <div class="w-10 h-10 rounded-lg bg-white/5 mb-6 flex items-center justify-center text-lg">📄</div>
+                    <h5 class="text-lg font-semibold mb-2">AI Resume Builder</h5>
+                    <p class="text-xs text-[#86868b] leading-relaxed">This project is currently under development and will be added soon.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative group overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-blue-500/10 text-blue-400 text-[10px] font-semibold tracking-wider uppercase px-2 py-1 rounded-full">Coming Soon</div>
+                    <div class="w-10 h-10 rounded-lg bg-white/5 mb-6 flex items-center justify-center text-lg">🛒</div>
+                    <h5 class="text-lg font-semibold mb-2">Full Stack E-Commerce</h5>
+                    <p class="text-xs text-[#86868b] leading-relaxed">This project is currently under development and will be added soon.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative group overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-blue-500/10 text-blue-400 text-[10px] font-semibold tracking-wider uppercase px-2 py-1 rounded-full">Coming Soon</div>
+                    <div class="w-10 h-10 rounded-lg bg-white/5 mb-6 flex items-center justify-center text-lg">📉</div>
+                    <h5 class="text-lg font-semibold mb-2">Finance Tracker</h5>
+                    <p class="text-xs text-[#86868b] leading-relaxed">This project is currently under development and will be added soon.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative group overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-blue-500/10 text-blue-400 text-[10px] font-semibold tracking-wider uppercase px-2 py-1 rounded-full">Coming Soon</div>
+                    <div class="w-10 h-10 rounded-lg bg-white/5 mb-6 flex items-center justify-center text-lg">✅</div>
+                    <h5 class="text-lg font-semibold mb-2">Task Management</h5>
+                    <p class="text-xs text-[#86868b] leading-relaxed">This project is currently under development and will be added soon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CONTACT SECTION -->
+    <section id="contact" class="py-32 bg-[#050505] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-blue-500 mb-4">Get In Touch</h2>
+            <h3 class="text-4xl md:text-6xl font-extrabold tracking-tight gradient-text mb-6">
+                Let's build something beautiful.
+            </h3>
+            <p class="text-base md:text-lg text-[#86868b] max-w-xl mx-auto mb-12 font-light leading-relaxed">
+                I'm always open to discussing new full-stack opportunities, AI web integrations, or data projects. Drop me a line!
+            </p>
+            
+            <div class="inline-block group">
+                <a href="mailto:ahirwararpana@gmail.com" class="flex items-center gap-3 bg-[#1c1c1e] border border-white/10 hover:border-blue-500/50 px-8 py-4 rounded-2xl text-lg md:text-xl font-medium text-white transition-all duration-300 shadow-xl shadow-black hover:shadow-blue-500/5">
+                    <span class="text-blue-500">✉</span>
+                    ahirwararpana@gmail.com
+                    <span class="text-gray-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 text-sm">↗</span>
+                </a>
+            </div>
+
+            <div class="flex justify-center gap-8 mt-16 text-sm text-[#86868b]">
+                <a href="https://www.linkedin.com/in/arpana-ahirwar-87336a194/" target="_blank" class="hover:text-white transition-colors duration-200 font-medium flex items-center gap-1">LinkedIn ↗</a>
+                <a href="https://github.com/arpana1902" target="_blank" class="hover:text-white transition-colors duration-200 font-medium flex items-center gap-1">GitHub ↗</a>
+            </div>
+        </div>
+        <div class="absolute -bottom-48 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-[#050505] border-t border-white/5 text-center text-[11px] text-[#86868b]">
+        <p>&copy; 2026 Arpana Ahirwar. Designed with minimalist aesthetic precision.</p>
+    </footer>
+
+    <!-- GSAP & AUTO SLIDER LOGIC -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Intro Animation
+        const tl = gsap.timeline();
+        tl.from(".hero-title", { opacity: 0, y: 40, duration: 1.2, ease: "power4.out" })
+          .from(".hero-subtitle", { opacity: 0, y: 20, duration: 1 }, "-=0.8")
+          .to(".hero-cta", { opacity: 1, scale: 1, duration: 0.5 }, "-=0.4");
+
+        // Scroll-triggered Fade-In for Project Cards
+        gsap.utils.toArray(".project-card").forEach(card => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        // 2-Second Auto Swapping Slider Logic
+        const slides = document.querySelectorAll('#agri-slider .slide-img');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 2000);
+
+        // Dynamic Embedded Resume Generation & Automatic Download
+        function downloadResume() {
+            const cvText = `ARPANA AHIRWAR\nSoftware Engineer | Full-Stack Developer\n\nContact Details:\nahirwararpana@gmail.com\nLinkedIn: www.linkedin.com/in/arpana-ahirwar-87336a194/\nGitHub: https://github.com/arpana1902\nAddress: C.M.O. Campus in front, Kunj bihari mandir, Gwalior road jhansi, Uttar pradesh\n\nPROJECTS:\n1. AI Agriculture Chatbot\nDeveloped an intelligent Al-powered chatbot tailored for agricultural queries, leveraging Python for backend logic and conversational workflows.\n\n2. Hotel Management Website\nBuilt a functional Hotel Management application to streamline room bookings, registrations, and database tracking.\n\n3. Personal Portfolio Website\nDesigned a professional personal portfolio to showcase technical skills and optimized front-end structures.\n\nTECHNICAL SKILLS:\n- Full-Stack Development (Python, Flask, Django)\n- Responsive UI/UX (HTML5, CSS3, JavaScript)\n- Version Control (Git, GitHub)\n\nEDUCATION:\n- Master of Computer Applications (MCA) | IGNOU | July 2025\n- Bachelor of Computer Applications (BCA) | Bundelkhand University, Jhansi | 2018`;
+            
+            const element = document.createElement('a');
+            const file = new Blob([cvText], {type: 'text/plain'});
+            element.href = URL.createObjectURL(file);
+            element.download = "Arpana_Ahirwar_Resume.txt";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>
